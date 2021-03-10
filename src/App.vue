@@ -1,26 +1,84 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <stage
+      :head="head"
+    />
+    <br />
+    <br />
+    <div class="options">
+      <div
+        v-for="head in heads"
+        class="option"
+      >
+        <img
+          :src="`/images/${head}.png`"
+          @click="$store.commit('setHead', head)"
+        />
+      </div>
+    </div>
+
+  </div>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapState } from 'vuex';
+import Stage from './components/Stage.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Stage,
+  },
+
+  data() {
+    return {
+      heads: [
+        'female-pale',
+        'female-white',
+        'female-brown',
+        'female-black',
+        'male-pale',
+        'male-white',
+        'male-brown',
+        'male-black',
+      ],
+    };
+  },
+
+   computed: {
+    ...mapState([
+      'head',
+    ]),
+  },
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style>
+body {
+  font-family: Menlo;
+}
+
+.options {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.option {
+
+}
+
+img {
+  width: 120px;
+  height: 120px;
+  
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-pixelated;
+  image-rendering: pixelated;
+  box-shadow: inset 0 0 0 2px #eee;
 }
 </style>

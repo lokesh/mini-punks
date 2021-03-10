@@ -1,19 +1,9 @@
-# mini-punks
+# MiniPunks 🧑‍🎤
 
-## Project setup
-```
-npm install
-```
+## To-do
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- [ ] Preload images
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Customize configuration
+## Build
 See [Configuration Reference](https://cli.vuejs.org/config/).
