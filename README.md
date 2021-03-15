@@ -2,7 +2,8 @@
 
 ## To-do
 
-- [ ] Preload images
+- [ ] When gender is switched... reset options?
+- [ ] Image loading: Move images into a single spritesheet.
 
 
 ## Build

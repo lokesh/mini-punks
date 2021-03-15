@@ -1,28 +1,48 @@
 <template>
   <div>
+    {{ gender }}
+    <br />
+    <br />
     <stage
       :head="head"
+      :hair="hair"
     />
     <br />
     <br />
+
     <div class="options">
       <div
-        v-for="head in heads"
+        v-for="option in headOptions"
         class="option"
       >
         <img
-          :src="`/images/${head}.png`"
-          @click="$store.commit('setHead', head)"
+          :src="`/images/${option}.png`"
+          class="option-img"
+          @click="$store.commit('setHead', option)"
         />
       </div>
     </div>
+
+    <div class="options">
+      <div
+        v-for="option in hairOptions"
+        class="option"
+      >
+        <img
+          :src="`/images/${option}.png`"
+          class="option-img"
+          @click="$store.commit('setHair', option)"
+        />
+      </div>
+    </div>
+
 
   </div>
   
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 import Stage from './components/Stage.vue'
 
 export default {
@@ -31,24 +51,15 @@ export default {
     Stage,
   },
 
-  data() {
-    return {
-      heads: [
-        'female-pale',
-        'female-white',
-        'female-brown',
-        'female-black',
-        'male-pale',
-        'male-white',
-        'male-brown',
-        'male-black',
-      ],
-    };
-  },
-
    computed: {
+    ...mapGetters([
+      'headOptions',
+      'hairOptions',
+    ]),
     ...mapState([
+      'gender',
       'head',
+      'hair',
     ]),
   },
 }
@@ -59,6 +70,10 @@ body {
   font-family: Menlo;
 }
 
+img {
+  display: block;
+}
+
 .options {
   display: flex;
   gap: 12px;
@@ -67,18 +82,22 @@ body {
 }
 
 .option {
-
+  border: 2px solid #ccc;
 }
 
-img {
-  width: 120px;
-  height: 120px;
+.option:hover {
+  border-color: blue;
+}
+
+.option-img {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
   
   -ms-interpolation-mode: nearest-neighbor;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: -moz-crisp-edges;
   image-rendering: -o-pixelated;
   image-rendering: pixelated;
-  box-shadow: inset 0 0 0 2px #eee;
 }
 </style>

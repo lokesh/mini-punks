@@ -7,6 +7,7 @@
     Download
   </a>
   {{ head }}<br />
+  {{ hair }}<br />
   <canvas
     class="canvas"
     ref="canvas"
@@ -19,6 +20,7 @@ export default {
 
   props: {
     head: String,
+    hair: String,
   },
 
   data() {
@@ -66,6 +68,9 @@ export default {
     head() {
       this.draw();
     },
+    hair() {
+      this.draw();
+    },
   },
 
   methods: {
@@ -76,9 +81,17 @@ export default {
       var img = new Image();
       img.onload = () => {
         this.ctx.drawImage(img, 0, 0);
+            img2.src = `/images/${this.hair}.png`;
+      };
+
+      var img2 = new Image();
+      img2.onload = () => {
+        this.ctx.drawImage(img2, 0, 0);
       };
 
       img.src = `/images/${this.head}.png`;
+
+
     },  
 
     /*
