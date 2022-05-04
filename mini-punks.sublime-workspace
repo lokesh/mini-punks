@@ -79,16 +79,7 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 121,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/store/index.js",
-			"settings":
-			{
-				"buffer_size": 806,
+				"buffer_size": 461,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -97,7 +88,7 @@
 			"file": "src/App.vue",
 			"settings":
 			{
-				"buffer_size": 1220,
+				"buffer_size": 2036,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -106,18 +97,19 @@
 			"file": "src/components/Stage.vue",
 			"settings":
 			{
-				"buffer_size": 2833,
+				"buffer_size": 2374,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/index.html",
+			"contents": "Searching 11 files for \"console.lo\"\n\n/Users/lokesh/Projects/mini-punks/src/components/Stage.vue:\n   45  \n   46    updated() {\n   47:     console.log('hi')\n   48    },\n   49  \n\n/Users/lokesh/Projects/mini-punks/src/store/index.js:\n  104    actions: {\n  105      switchHead: ({ state, commit, getters}, val) => {\n  106:       console.log(val);\n  107        commit('setHeadIndex', val);\n  108        const headOption = getters.headOptions[val];\n\n2 matches across 2 files\n",
 			"settings":
 			{
-				"buffer_size": 622,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"buffer_size": 468,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
 			}
 		}
 	],
@@ -203,12 +195,13 @@
 	],
 	"file_history":
 	[
-		"/Users/lokesh/Projects/mini-punks/src/utils/random.js",
-		"/Users/lokesh/Projects/mini-punks/src/main.js",
-		"/Users/lokesh/Projects/mini-punks/src/components/Stage.vue",
-		"/Users/lokesh/Projects/mini-punks/src/App.vue",
-		"/Users/lokesh/Projects/mini-punks/README.md",
 		"/Users/lokesh/Projects/mini-punks/src/store/index.js",
+		"/Users/lokesh/Projects/mini-punks/README.md",
+		"/Users/lokesh/Projects/mini-punks/src/utils/random.js",
+		"/Users/lokesh/Projects/mini-punks/src/App.vue",
+		"/Users/lokesh/Projects/mini-punks/src/components/Stage.vue",
+		"/Users/lokesh/Projects/mini-punks/public/index.html",
+		"/Users/lokesh/Projects/mini-punks/src/main.js",
 		"/Users/lokesh/Projects/mini-punks/package.json",
 		"/Users/lokesh/Projects/lokesh-dhakar/src/notes/ghost-in-the-wires.md",
 		"/Users/lokesh/Projects/lokesh-dhakar/src/notes/the-answer-is.md",
@@ -329,12 +322,11 @@
 		"/Users/lokesh/Projects/lokesh-dhakar/src/posts/dev-101.md",
 		"/Users/lokesh/Projects/lokesh-dhakar/dist/data/sketches.json",
 		"/Users/lokesh/Projects/lokesh-dhakar/src/data/scraped-text-content.js",
-		"/Users/lokesh/Projects/lokesh-dhakar/src/posts/baltimore-travelogue.md",
-		"/Users/lokesh/Projects/lokesh-dhakar/dist/css/vars.css"
+		"/Users/lokesh/Projects/lokesh-dhakar/src/posts/baltimore-travelogue.md"
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -351,6 +343,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"console.lo",
+			"$store",
+			"options",
+			"function",
+			"functino ",
+			"female-pal",
+			"male",
+			"female",
 			"hat"
 		],
 		"highlight": true,
@@ -359,6 +359,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"m-head",
+			"f-head"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -369,7 +371,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -378,15 +380,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 121,
+						"buffer_size": 461,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								387,
+								358
 							]
 						],
 						"settings":
@@ -407,85 +409,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "src/store/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 806,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								594,
-								594
-							]
-						],
-						"settings":
-						{
-							"editorconfig": true,
-							"ensure_newline_at_eof_on_save": true,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"trim_trailing_white_space_on_save": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "src/App.vue",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1220,
+						"buffer_size": 2036,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								325,
-								325
-							]
-						],
-						"settings":
-						{
-							"editorconfig": true,
-							"ensure_newline_at_eof_on_save": true,
-							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"trim_trailing_white_space_on_save": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/components/Stage.vue",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2833,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								73,
-								73
+								600,
+								600
 							]
 						],
 						"settings":
@@ -505,36 +441,86 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "public/index.html",
+					"buffer": 2,
+					"file": "src/components/Stage.vue",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 622,
+						"buffer_size": 2374,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								209,
-								209
+								622,
+								622
 							]
 						],
 						"settings":
 						{
 							"editorconfig": true,
 							"ensure_newline_at_eof_on_save": true,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true,
 							"trim_trailing_white_space_on_save": false
 						},
 						"translation.x": 0.0,
+						"translation.y": 405.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 468,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										137,
+										147
+									],
+									[
+										324,
+										334
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								331,
+								331
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -588,6 +574,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"store index.",
+				"src/store/index.js"
+			],
+			[
+				"readm",
+				"README.md"
+			],
+			[
+				"stage.",
+				"src/components/Stage.vue"
+			],
 			[
 				"readme",
 				"README.md"
@@ -1053,10 +1051,6 @@
 				"src/notes.md"
 			],
 			[
-				"readm",
-				"README.md"
-			],
-			[
 				"img",
 				"build/img.js"
 			],
@@ -1091,14 +1085,6 @@
 			[
 				"layou  ",
 				"src/layouts/base.njk"
-			],
-			[
-				"layout ba",
-				"src/layouts/base.njk"
-			],
-			[
-				"read",
-				"README.md"
 			]
 		],
 		"width": 0.0

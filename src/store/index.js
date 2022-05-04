@@ -1,11 +1,6 @@
 import { createStore } from 'vuex'
 import { random } from '@/utils/random.js'
 
-// Convenience function for mutations to reduce boilerplate
-const set = key => (state, val) => {
-  state[key] = val;
-};
-
 function getOptions(name, gender) {
   const set = optionSets.find(set => set.name === name);
   if (gender) {
@@ -30,8 +25,9 @@ const optionSets = [
   name: 'bg',
   stackOrder: 1,
   options: [
-    'blue',
-    'purple',
+    'empty',
+    'bg-blue',
+    'bg-purple',
   ],
 },
 {
@@ -52,11 +48,13 @@ const optionSets = [
   name: 'hair',
   options: {
     female: [
+      'empty',
       'f-hair-brownfox',
       'f-hair-mohawk',
       'f-hair-slope',
     ],
     male: [
+      'empty',
       'm-hair-brownfox',
       'm-hair-mohawk',
       'm-hair-slope',
@@ -71,34 +69,45 @@ const optionSets = [
 export default createStore({
   state: {
     gender: 'female',
-    head: getRandomOption('head'),
-    hair: getRandomOption('hair', 'female'),
 
+    bgIndex: 1,
     headIndex: 0,
     hairIndex: 0,
 
     options: optionSets,
   },
   getters: {
-     headOptions: (state) => {
+    bgOptions: (state) => {
+      return getOptions('bg');
+    },
+    headOptions: (state) => {
       return getOptions('head');
     },
-     hairOptions: (state) => {
+    hairOptions: (state) => {
       return getOptions('hair', state.gender);
     },
-
   },
   mutations: {
-    setHead: (state, val) => {
-      state.head = val;
-      state.gender = val.startsWith('f') ? 'female' : 'male';
+    setGender: (state, val) => {
+      state.gender = val;
     },
-    setHair: (state, val) => {
-      state.hair = val;
+    setBgIndex: (state, val) => {
+      state.bgIndex = val;
+    },
+    setHeadIndex: (state, val) => {
+      state.headIndex = val;
+    },
+    setHairIndex: (state, val) => {
+      state.hairIndex = val;
     },
   },
   actions: {
+    switchHead: ({ state, commit, getters}, val) => {
+      commit('setHeadIndex', val);
+      const headOption = getters.headOptions[val];
+
+      const gender = headOption.startsWith('f') ? 'female' : 'male';
+      commit('setGender', gender);
+    },
   },
-  modules: {
-  }
 })

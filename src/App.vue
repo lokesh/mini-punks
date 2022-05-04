@@ -1,41 +1,40 @@
 <template>
   <div>
-    {{ gender }}
-    <br />
-    <br />
     <stage
-      :head="head"
-      :hair="hair"
+      :head="headOptions[headIndex]"
+      :hair="hairOptions[hairIndex]"
+      :bg="bgOptions[bgIndex]"
     />
     <br />
     <br />
 
     <div class="options">
       <div
-        v-for="option in headOptions"
+        v-for="(option, index) in headOptions"
         class="option"
       >
         <img
           :src="`/images/${option}.png`"
           class="option-img"
-          @click="$store.commit('setHead', option)"
+          draggable="false"
+          @click="$store.dispatch('switchHead', index)"
         />
       </div>
     </div>
 
-    <div class="options">
-      <div
-        v-for="option in hairOptions"
-        class="option"
-      >
-        <img
-          :src="`/images/${option}.png`"
-          class="option-img"
-          @click="$store.commit('setHair', option)"
-        />
-      </div>
-    </div>
-
+   <input
+      type="range"
+      min="0"
+      :max="bgOptions.length - 1"
+      v-model="bgIndex"
+    >
+    <br />
+    <input
+      type="range"
+      min="0"
+      :max="hairOptions.length - 1"
+      v-model="hairIndex"
+    >
 
   </div>
   
@@ -53,14 +52,34 @@ export default {
 
    computed: {
     ...mapGetters([
+      'bgOptions',
       'headOptions',
       'hairOptions',
     ]),
     ...mapState([
       'gender',
-      'head',
-      'hair',
+      'bgIndex',
+      'hairIndex',
+      'headIndex',
     ]),
+
+    bgIndex: {
+      get: function() {
+        return this.$store.state.bgIndex;
+      },
+      set: function(val) {
+        this.$store.commit('setBgIndex', val);
+      },
+    },
+
+    hairIndex: {
+      get: function() {
+        return this.$store.state.hairIndex;
+      },
+      set: function(val) {
+        this.$store.commit('setHairIndex', val);
+      },
+    }
   },
 }
 </script>
@@ -76,13 +95,17 @@ img {
 
 .options {
   display: flex;
-  gap: 12px;
   width: 100%;
   overflow-x: scroll;
 }
 
 .option {
   border: 2px solid #ccc;
+  margin-right: 12px;
+}
+
+.option:last-of-type {
+  margin-right: 0;
 }
 
 .option:hover {
@@ -93,7 +116,7 @@ img {
   width: 60px;
   height: 60px;
   cursor: pointer;
-  
+
   -ms-interpolation-mode: nearest-neighbor;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: -moz-crisp-edges;
